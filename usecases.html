@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SemaBridge — Use Cases</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    /* ── PAGE HERO ── */
+    .uc-hero {
+      padding: 140px 0 80px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(79,142,247,0.12) 0%, transparent 70%),
+                  var(--bg-0);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .uc-hero-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--brand);
+      background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.2);
+      border-radius: 20px; padding: 5px 14px; margin-bottom: 22px;
+    }
+    .uc-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: var(--text-1); margin-bottom: 18px; }
+    .uc-hero p  { font-size: 1.05rem; color: var(--text-2); max-width: 600px; margin: 0 auto; }
+
+    /* ── USE CASE SECTION ── */
+    .uc-section { padding: 90px 0; border-bottom: 1px solid var(--border); }
+    .uc-section:nth-child(odd) { background: var(--bg-0); }
+    .uc-section:nth-child(even){ background: var(--bg-1); }
+
+    .uc-inner {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* LEFT COLUMN */
+    .uc-meta { position: sticky; top: 88px; }
+    .uc-number {
+      font-size: 4.5rem; font-weight: 900; line-height: 1;
+      letter-spacing: -0.04em; margin-bottom: 10px;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .uc1 .uc-number { background: linear-gradient(135deg, #29a8ff, #38d4c0); }
+    .uc2 .uc-number { background: linear-gradient(135deg, #a78bfa, #FF3621); }
+    .uc3 .uc-number { background: linear-gradient(135deg, #F28E2B, #F2C811); }
+    .uc4 .uc-number { background: linear-gradient(135deg, #38d4c0, #4f8ef7); }
+
+    .uc-category {
+      font-size: 0.68rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.14em; padding: 3px 10px; border-radius: 5px;
+      display: inline-block; margin-bottom: 14px;
+    }
+    .uc1 .uc-category { background: rgba(41,168,255,0.12); color: #29a8ff; border: 1px solid rgba(41,168,255,0.25); }
+    .uc2 .uc-category { background: rgba(167,139,250,0.12); color: #a78bfa; border: 1px solid rgba(167,139,250,0.25); }
+    .uc3 .uc-category { background: rgba(242,142,43,0.12); color: #F28E2B; border: 1px solid rgba(242,142,43,0.25); }
+    .uc4 .uc-category { background: rgba(56,212,192,0.12); color: #38d4c0; border: 1px solid rgba(56,212,192,0.25); }
+
+    .uc-headline { font-size: 1.45rem; font-weight: 800; color: var(--text-1); line-height: 1.3; margin-bottom: 10px; }
+    .uc-tagline  { font-size: 0.9rem; color: var(--text-2); line-height: 1.6; }
+
+    /* RIGHT COLUMN */
+    .uc-body { display: flex; flex-direction: column; gap: 28px; }
+
+    /* Scenario */
+    .uc-scenario {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 30px;
+      position: relative; overflow: hidden;
+    }
+    .uc-scenario::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; bottom: 0;
+      border-radius: 4px 0 0 4px;
+    }
+    .uc1 .uc-scenario::before { background: linear-gradient(180deg,#29a8ff,#38d4c0); }
+    .uc2 .uc-scenario::before { background: linear-gradient(180deg,#a78bfa,#FF3621); }
+    .uc3 .uc-scenario::before { background: linear-gradient(180deg,#F28E2B,#F2C811); }
+    .uc4 .uc-scenario::before { background: linear-gradient(180deg,#38d4c0,#4f8ef7); }
+
+    .uc-scenario-label {
+      font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--text-3); margin-bottom: 12px;
+    }
+    .uc-scenario p { font-size: 0.93rem; color: var(--text-2); line-height: 1.75; margin-bottom: 12px; }
+    .uc-scenario p:last-child { margin-bottom: 0; }
+
+    /* Pain callout */
+    .uc-pain {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: 16px 18px;
+    }
+    .uc-pain-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+    .uc-pain-text { flex: 1; }
+    .uc-pain-label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+                     letter-spacing: 0.12em; color: var(--text-3); margin-bottom: 3px; }
+    .uc-pain-quote { font-size: 0.92rem; font-weight: 700; color: var(--text-1); font-style: italic; }
+
+    /* Platform flow */
+    .uc-flow {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px 28px;
+    }
+    .uc-flow-label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+                     letter-spacing: 0.14em; color: var(--text-3); margin-bottom: 18px; }
+    .uc-flow-track {
+      display: flex; align-items: center; gap: 0; flex-wrap: wrap; gap: 8px;
+    }
+    .uc-flow-group { display: flex; flex-direction: column; gap: 8px; }
+    .uc-flow-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 7px 12px;
+      font-size: 0.8rem; font-weight: 600; color: var(--text-1);
+    }
+    /* Fixed 16px for icons inside inline-flex chips */
+    .uc-flow-chip .icon-img { width: 16px; height: 16px; flex-shrink: 0; }
+    .uc-flow-arrow {
+      font-size: 1.1rem; color: var(--text-3);
+      padding: 0 4px; flex-shrink: 0; align-self: center;
+    }
+    .uc-flow-bridge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, rgba(79,142,247,0.15), rgba(56,212,192,0.15));
+      border: 1px solid rgba(79,142,247,0.3);
+      border-radius: 8px; padding: 8px 14px;
+      font-size: 0.82rem; font-weight: 800;
+      background-clip: text; -webkit-background-clip: unset;
+    }
+    .uc-flow-bridge-label {
+      background: linear-gradient(90deg,#4f8ef7,#38d4c0);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .uc-flow-sml {
+      font-size: 0.65rem; font-weight: 700; color: var(--text-3);
+      border: 1px solid rgba(79,142,247,0.2); border-radius: 4px;
+      padding: 1px 5px; margin-left: 2px;
+    }
+
+    /* Outcomes */
+    .uc-outcomes {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
+    }
+    .uc-outcome {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px 16px 14px;
+    }
+    .uc-outcome-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; margin-bottom: 10px;
+    }
+    .uc1 .uc-outcome-icon { background: rgba(41,168,255,0.12); }
+    .uc2 .uc-outcome-icon { background: rgba(167,139,250,0.12); }
+    .uc3 .uc-outcome-icon { background: rgba(242,142,43,0.12); }
+    .uc4 .uc-outcome-icon { background: rgba(56,212,192,0.12); }
+    .uc-outcome-text { font-size: 0.8rem; color: var(--text-2); line-height: 1.5; font-weight: 500; }
+    .uc-outcome-text strong { display: block; color: var(--text-1); font-weight: 700; margin-bottom: 2px; font-size: 0.82rem; }
+
+    /* Bottom CTA */
+    .uc-cta-section {
+      padding: 80px 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(56,212,192,0.08) 0%, transparent 70%),
+                  var(--bg-0);
+      text-align: center;
+    }
+    .uc-cta-section h2 { font-size: 1.9rem; font-weight: 800; color: var(--text-1); margin-bottom: 12px; }
+    .uc-cta-section p  { color: var(--text-2); margin-bottom: 28px; font-size: 0.97rem; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .uc-inner { grid-template-columns: 1fr; gap: 32px; }
+      .uc-meta  { position: static; }
+      .uc-outcomes { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .uc-flow-track { flex-direction: column; align-items: flex-start; }
+      .uc-flow-arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+        <defs>
+          <linearGradient id="nb1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#38d4c0"/>
+          </linearGradient>
+        </defs>
+        <rect x="4" y="28" width="5" height="16" rx="2.5" fill="url(#nb1)"/>
+        <rect x="39" y="28" width="5" height="16" rx="2.5" fill="url(#nb1)"/>
+        <rect x="2" y="33" width="44" height="3" rx="1.5" fill="url(#nb1)" opacity="0.35"/>
+        <path d="M6.5 34 Q24 5 41.5 34" stroke="url(#nb1)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <line x1="13.5" y1="19.5" x2="13.5" y2="33" stroke="url(#nb1)" stroke-width="1.2" opacity="0.45"/>
+        <line x1="24"   y1="10.5" x2="24"   y2="33" stroke="url(#nb1)" stroke-width="1.2" opacity="0.45"/>
+        <line x1="34.5" y1="19.5" x2="34.5" y2="33" stroke="url(#nb1)" stroke-width="1.2" opacity="0.45"/>
+        <circle cx="13.5" cy="19.5" r="3.2" fill="#0d1117" stroke="#4f8ef7" stroke-width="2"/>
+        <circle cx="24"   cy="10.5" r="4"   fill="#0d1117" stroke="url(#nb1)" stroke-width="2.2"/>
+        <circle cx="34.5" cy="19.5" r="3.2" fill="#0d1117" stroke="#38d4c0" stroke-width="2"/>
+        <circle cx="13.5" cy="19.5" r="1.4" fill="#4f8ef7"/>
+        <circle cx="24"   cy="10.5" r="1.8" fill="url(#nb1)"/>
+        <circle cx="34.5" cy="19.5" r="1.4" fill="#38d4c0"/>
+      </svg>
+      <div class="nav-logo-text">
+        <span>SemaBridge</span>
+        <span class="nav-tagline">Bring Semantics to Data</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#problem">Problem</a>
+      <a href="index.html#solution">Solution</a>
+      <a href="index.html#adapters">Adapters</a>
+      <a href="index.html#agents">Agents</a>
+      <a href="usecases.html" style="color:var(--brand)">Use Cases</a>
+      <a href="index.html#security">Security</a>
+    </div>
+    <a href="index.html#cta" class="nav-cta">Request Demo →</a>
+  </div>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="uc-hero">
+  <div class="container">
+    <div class="uc-hero-kicker">
+      <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#4f8ef7"/></svg>
+      Real-World Scenarios
+    </div>
+    <h1>SemaBridge <span class="grad">in the Wild</span></h1>
+    <p>Four enterprise data scenarios where semantic fragmentation quietly costs millions — and how SemaBridge resolves each one automatically.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     USE CASE 1 — Snowflake + Fabric / Power BI
+══════════════════════════════════════════════════════════════ -->
+<section class="uc-section uc1" id="uc1">
+  <div class="container">
+    <div class="uc-inner">
+
+      <!-- LEFT: meta -->
+      <div class="uc-meta">
+        <div class="uc-number">01</div>
+        <div class="uc-category">Cloud + BI Unification</div>
+        <h2 class="uc-headline">Your BI Semantics,<br>Live on Snowflake.<br>Automatically.</h2>
+        <p class="uc-tagline">Power BI is the enterprise standard. Snowflake is the new data cloud. Making them speak the same language shouldn't require a six-month consulting project.</p>
+      </div>
+
+      <!-- RIGHT: body -->
+      <div class="uc-body">
+
+        <!-- Scenario -->
+        <div class="uc-scenario">
+          <div class="uc-scenario-label">The Scenario</div>
+          <p>Enterprise BI investments accumulate years of semantic richness — hundreds of DAX measures, time-intelligence calculations, certified KPI hierarchies, and row-level security roles. When the strategic decision arrives to adopt Snowflake as the primary data cloud — to unlock Cortex AI, natural-language analytics, and Snowflake-native Semantic Views — the semantic layer problem surfaces immediately.</p>
+          <p>Every business metric, every dimension hierarchy, every governance rule lives in Analysis Services' proprietary format. Recreating it in Snowflake's completely different Semantic View syntax requires manual effort measured in months, not days. When that rebuild is finally complete, two independent semantic layers exist — one in Power BI, one in Snowflake — diverging from the moment the first definition changes.</p>
+        </div>
+
+        <!-- Pain callout -->
+        <div class="uc-pain">
+          <div class="uc-pain-icon">⏳</div>
+          <div class="uc-pain-text">
+            <div class="uc-pain-label">The Core Problem</div>
+            <div class="uc-pain-quote">Months of manual rebuild to recreate what already exists — and permanent drift the moment any definition changes.</div>
+          </div>
+        </div>
+
+        <!-- Platform flow -->
+        <div class="uc-flow">
+          <div class="uc-flow-label">How SemaBridge Resolves It</div>
+          <div class="uc-flow-track">
+            <!-- Sources -->
+            <div class="uc-flow-group">
+              <div class="uc-flow-chip">
+                <img src="icons/powerbi.png" class="icon-img" alt="Power BI">
+                Power BI Semantic Model
+              </div>
+              <div class="uc-flow-chip">
+                <img src="icons/fabric.png" class="icon-img" alt="Microsoft Fabric">
+                Fabric Semantic Model
+              </div>
+            </div>
+            <div class="uc-flow-arrow">→</div>
+            <!-- SemaBridge -->
+            <div class="uc-flow-bridge">
+              <svg width="18" height="18" viewBox="0 0 48 48" fill="none">
+                <defs><linearGradient id="fb1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#38d4c0"/></linearGradient></defs>
+                <rect x="4" y="28" width="5" height="16" rx="2.5" fill="url(#fb1)"/>
+                <rect x="39" y="28" width="5" height="16" rx="2.5" fill="url(#fb1)"/>
+                <path d="M6.5 34 Q24 5 41.5 34" stroke="url(#fb1)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="24" cy="10.5" r="4" fill="#0d1117" stroke="url(#fb1)" stroke-width="2.2"/>
+              </svg>
+              <span class="uc-flow-bridge-label">SemaBridge</span>
+              <span class="uc-flow-sml">SML</span>
+            </div>
+            <div class="uc-flow-arrow">→</div>
+            <!-- Targets -->
+            <div class="uc-flow-group">
+              <div class="uc-flow-chip">
+                <img src="icons/snowflake.png" class="icon-img" alt="Snowflake">
+                Snowflake Semantic View
+              </div>
+              <div class="uc-flow-chip">
+                <img src="icons/powerbi.png" class="icon-img" alt="Power BI">
+                Power BI (synced back)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outcomes -->
+        <div class="uc-outcomes">
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">⚡</div>
+            <div class="uc-outcome-text"><strong>Days, Not Months</strong>Automated conversion of every DAX measure and hierarchy to Snowflake Semantic View format — complete in hours, not a nine-month rebuild.</div>
+          </div>
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">🔒</div>
+            <div class="uc-outcome-text"><strong>No Drift, Ever</strong>SML is the single source of truth. When a definition changes, it propagates to both Power BI and Snowflake simultaneously.</div>
+          </div>
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">🤖</div>
+            <div class="uc-outcome-text"><strong>Cortex AI Ready</strong>Snowflake Cortex Analyst answers natural-language questions using the same certified metric definitions as your Power BI dashboards.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     USE CASE 2 — Multi-Cloud: Databricks + Snowflake
+══════════════════════════════════════════════════════════════ -->
+<section class="uc-section uc2" id="uc2">
+  <div class="container">
+    <div class="uc-inner">
+
+      <!-- LEFT: meta -->
+      <div class="uc-meta">
+        <div class="uc-number">02</div>
+        <div class="uc-category">Multi-Platform Consistency</div>
+        <h2 class="uc-headline">One Company.<br>Two Platforms.<br>Zero Metric Conflicts.</h2>
+        <p class="uc-tagline">When engineering and finance live on different clouds, "Monthly Recurring Revenue" becomes a quarterly argument. SemaBridge makes it a fact.</p>
+      </div>
+
+      <!-- RIGHT: body -->
+      <div class="uc-body">
+
+        <!-- Scenario -->
+        <div class="uc-scenario">
+          <div class="uc-scenario-label">The Scenario</div>
+          <p>In multi-platform analytics environments, semantic definitions multiply independently. Engineering and data science teams build their metric layer in Databricks Unity Catalog — sophisticated Metrics Views powering ML pipelines, Genie AI, and operational dashboards. Finance and regulatory reporting teams build theirs in Snowflake Semantic Views. Each team defines every KPI with the confidence that comes from owning their platform.</p>
+          <p>Both definitions are internally consistent. Neither team is wrong — by their own logic. But the same core business metric, built on the same source tables, returns different results on each platform. At quarter-close, the variance surfaces in reporting. Analysts spend weeks reconciling a gap rooted in a single date-boundary assumption that was never aligned across teams. The discrepancy recurs the following quarter. Trust in the data erodes.</p>
+        </div>
+
+        <!-- Pain callout -->
+        <div class="uc-pain">
+          <div class="uc-pain-icon">📊</div>
+          <div class="uc-pain-text">
+            <div class="uc-pain-label">The Core Problem</div>
+            <div class="uc-pain-quote">Same source tables. Different metric results on every platform. The same reconciliation cost, every reporting cycle.</div>
+          </div>
+        </div>
+
+        <!-- Platform flow -->
+        <div class="uc-flow">
+          <div class="uc-flow-label">How SemaBridge Resolves It</div>
+          <div class="uc-flow-track">
+            <div class="uc-flow-group">
+              <div class="uc-flow-chip">
+                <img src="icons/databricks.png" class="icon-img" alt="Databricks">
+                Databricks Metrics Views
+              </div>
+              <div class="uc-flow-chip">
+                <img src="icons/snowflake.png" class="icon-img" alt="Snowflake">
+                Snowflake Semantic Views
+              </div>
+            </div>
+            <div class="uc-flow-arrow">→</div>
+            <div class="uc-flow-bridge">
+              <svg width="18" height="18" viewBox="0 0 48 48" fill="none">
+                <defs><linearGradient id="fb2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#38d4c0"/></linearGradient></defs>
+                <rect x="4" y="28" width="5" height="16" rx="2.5" fill="url(#fb2)"/>
+                <rect x="39" y="28" width="5" height="16" rx="2.5" fill="url(#fb2)"/>
+                <path d="M6.5 34 Q24 5 41.5 34" stroke="url(#fb2)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="24" cy="10.5" r="4" fill="#0d1117" stroke="url(#fb2)" stroke-width="2.2"/>
+              </svg>
+              <span class="uc-flow-bridge-label">SemaBridge</span>
+              <span class="uc-flow-sml">SML</span>
+            </div>
+            <div class="uc-flow-arrow">→</div>
+            <div class="uc-flow-group">
+              <div class="uc-flow-chip">
+                <img src="icons/databricks.png" class="icon-img" alt="Databricks">
+                Databricks (canonical)
+              </div>
+              <div class="uc-flow-chip">
+                <img src="icons/snowflake.png" class="icon-img" alt="Snowflake">
+                Snowflake (canonical)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outcomes -->
+        <div class="uc-outcomes">
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">✅</div>
+            <div class="uc-outcome-text"><strong>One Definition, Everywhere</strong>SML becomes the enterprise-wide canonical metric registry. "Revenue" has exactly one definition, deployed to both platforms simultaneously.</div>
+          </div>
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">🧹</div>
+            <div class="uc-outcome-text"><strong>Quarterly Reconciliation Eliminated</strong>Metric divergence is prevented at the source — not discovered at quarter-close and patched in a spreadsheet.</div>
+          </div>
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">🏛️</div>
+            <div class="uc-outcome-text"><strong>Cross-Platform Governance</strong>Every SML deployment carries the full audit trail — who changed which metric definition, when, and what it deployed to.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     USE CASE 3 — Cloud Data Platform Migration
+══════════════════════════════════════════════════════════════ -->
+<section class="uc-section uc3" id="uc3">
+  <div class="container">
+    <div class="uc-inner">
+
+      <!-- LEFT: meta -->
+      <div class="uc-meta">
+        <div class="uc-number">03</div>
+        <div class="uc-category">Zero-Loss Migration</div>
+        <h2 class="uc-headline">Migrate Your<br>Platform.<br>Not Your Patience.</h2>
+        <p class="uc-tagline">Data migrations move the bytes. SemaBridge moves the business logic — the part that actually makes the data mean something.</p>
+      </div>
+
+      <!-- RIGHT: body -->
+      <div class="uc-body">
+
+        <!-- Scenario -->
+        <div class="uc-scenario">
+          <div class="uc-scenario-label">The Scenario</div>
+          <p>Platform migrations routinely pass technical validation on data completeness, pipeline correctness, and schema fidelity. What standard migration checklists do not capture is the semantic layer. Years of certified metric definitions, dimension hierarchies, governance-approved business logic, and row-level security rules live above the data — not in it. They are invisible to ETL tools and migration validators alike.</p>
+          <p>On go-live day, the data arrives in the new environment intact. The semantic layer does not. Every BI dashboard that relied on semantic objects breaks simultaneously. Data engineering begins a post-migration rebuild of business logic that should never have been left behind — a process measured in months, not days. The migration succeeds technically while the business runs on pre-migration snapshots waiting for the semantic layer to catch up.</p>
+        </div>
+
+        <!-- Pain callout -->
+        <div class="uc-pain">
+          <div class="uc-pain-icon">🚨</div>
+          <div class="uc-pain-text">
+            <div class="uc-pain-label">The Core Problem</div>
+            <div class="uc-pain-quote">Data migrates successfully. Semantic models do not. Every BI dashboard breaks on go-live day — and stays broken for months.</div>
+          </div>
+        </div>
+
+        <!-- Platform flow -->
+        <div class="uc-flow">
+          <div class="uc-flow-label">How SemaBridge Resolves It</div>
+          <div class="uc-flow-track">
+            <div class="uc-flow-chip" style="padding: 12px 16px;">
+              <svg width="16" height="16" viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="20" rx="3" fill="none" stroke="#F28E2B" stroke-width="2"/><line x1="4" y1="12" x2="28" y2="12" stroke="#F28E2B" stroke-width="1.5"/><rect x="8" y="16" width="6" height="7" rx="1" fill="#F28E2B" opacity="0.4"/><rect x="18" y="16" width="6" height="7" rx="1" fill="#F28E2B" opacity="0.7"/></svg>
+              Source Platform<br><span style="font-size:0.7rem;color:var(--text-3);font-weight:400">Existing semantic layer extracted</span>
+            </div>
+            <div class="uc-flow-arrow">→</div>
+            <div class="uc-flow-bridge">
+              <svg width="18" height="18" viewBox="0 0 48 48" fill="none">
+                <defs><linearGradient id="fb3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#38d4c0"/></linearGradient></defs>
+                <rect x="4" y="28" width="5" height="16" rx="2.5" fill="url(#fb3)"/>
+                <rect x="39" y="28" width="5" height="16" rx="2.5" fill="url(#fb3)"/>
+                <path d="M6.5 34 Q24 5 41.5 34" stroke="url(#fb3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="24" cy="10.5" r="4" fill="#0d1117" stroke="url(#fb3)" stroke-width="2.2"/>
+              </svg>
+              <span class="uc-flow-bridge-label">SemaBridge</span>
+              <span class="uc-flow-sml">SML</span>
+            </div>
+            <div class="uc-flow-arrow">→</div>
+            <div class="uc-flow-chip" style="padding: 12px 16px;">
+              <svg width="16" height="16" viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="20" rx="3" fill="none" stroke="#38d4c0" stroke-width="2"/><line x1="4" y1="12" x2="28" y2="12" stroke="#38d4c0" stroke-width="1.5"/><rect x="8" y="16" width="6" height="7" rx="1" fill="#38d4c0" opacity="0.4"/><rect x="18" y="16" width="6" height="7" rx="1" fill="#38d4c0" opacity="0.7"/></svg>
+              Target Platform<br><span style="font-size:0.7rem;color:var(--text-3);font-weight:400">Full semantic layer deployed day one</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outcomes -->
+        <div class="uc-outcomes">
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">📦</div>
+            <div class="uc-outcome-text"><strong>Complete Semantic Export</strong>Every metric definition, hierarchy, dimension, and governance rule is extracted and preserved in SML before cutover. Nothing is left behind.</div>
+          </div>
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">🚀</div>
+            <div class="uc-outcome-text"><strong>Day-One Deployment</strong>The full semantic layer deploys to the target platform as part of the cutover runbook — not as a four-month post-migration project.</div>
+          </div>
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">🔍</div>
+            <div class="uc-outcome-text"><strong>Migration Audit Trail</strong>SML serves as the semantic migration manifest — a version-controlled record of every definition moved, enabling validation and rollback.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     USE CASE 4 — Iceberg Tables + Fabric OneLake + Snowflake/Databricks
+══════════════════════════════════════════════════════════════ -->
+<section class="uc-section uc4" id="uc4">
+  <div class="container">
+    <div class="uc-inner">
+
+      <!-- LEFT: meta -->
+      <div class="uc-meta">
+        <div class="uc-number">04</div>
+        <div class="uc-category">Open Table Format</div>
+        <h2 class="uc-headline">The Data<br>Is Unified.<br>Now Unify<br>the Semantics.</h2>
+        <p class="uc-tagline">Apache Iceberg solved the data sharing problem. SemaBridge solves the semantic sharing problem that Iceberg left behind.</p>
+      </div>
+
+      <!-- RIGHT: body -->
+      <div class="uc-body">
+
+        <!-- Scenario -->
+        <div class="uc-scenario">
+          <div class="uc-scenario-label">The Scenario</div>
+          <p>Apache Iceberg resolves the data duplication problem. With Fabric OneLake as the canonical data estate, the same Iceberg tables are accessible via Snowflake External Volumes and Databricks Unity Catalog — three compute engines, one physical copy of the data. The open table format delivers on its architectural promise of a unified, vendor-neutral data layer.</p>
+          <p>The semantic layer above it does not unify automatically. Each platform team builds independently: Fabric Semantic Models for Power BI consumers, Databricks Metrics Views for ML and data science workflows, Snowflake Semantic Views for finance and operations analytics. Three platforms, three teams, three independent definitions for every core business metric. The physical data contract is unified. The semantic contracts are not — and every cross-platform analysis requires a manual reconciliation step that negates the benefit of the shared data layer entirely.</p>
+        </div>
+
+        <!-- Pain callout -->
+        <div class="uc-pain">
+          <div class="uc-pain-icon">🧊</div>
+          <div class="uc-pain-text">
+            <div class="uc-pain-label">The Core Problem</div>
+            <div class="uc-pain-quote">One physical copy of data via Iceberg. Three conflicting semantic definitions built independently on top of it.</div>
+          </div>
+        </div>
+
+        <!-- Platform flow -->
+        <div class="uc-flow">
+          <div class="uc-flow-label">How SemaBridge Resolves It</div>
+          <div class="uc-flow-track">
+            <div class="uc-flow-group">
+              <div class="uc-flow-chip">
+                <img src="icons/fabric.png" class="icon-img" alt="Microsoft Fabric">
+                Fabric OneLake (Iceberg)
+              </div>
+              <div class="uc-flow-chip">
+                <img src="icons/snowflake.png" class="icon-img" alt="Snowflake">
+                Snowflake External Volumes
+              </div>
+              <div class="uc-flow-chip">
+                <img src="icons/databricks.png" class="icon-img" alt="Databricks">
+                Databricks Unity Catalog
+              </div>
+            </div>
+            <div class="uc-flow-arrow">→</div>
+            <div class="uc-flow-bridge">
+              <svg width="18" height="18" viewBox="0 0 48 48" fill="none">
+                <defs><linearGradient id="fb4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#38d4c0"/></linearGradient></defs>
+                <rect x="4" y="28" width="5" height="16" rx="2.5" fill="url(#fb4)"/>
+                <rect x="39" y="28" width="5" height="16" rx="2.5" fill="url(#fb4)"/>
+                <path d="M6.5 34 Q24 5 41.5 34" stroke="url(#fb4)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="24" cy="10.5" r="4" fill="#0d1117" stroke="url(#fb4)" stroke-width="2.2"/>
+              </svg>
+              <span class="uc-flow-bridge-label">SemaBridge</span>
+              <span class="uc-flow-sml">SML</span>
+            </div>
+            <div class="uc-flow-arrow">→</div>
+            <div class="uc-flow-group">
+              <div class="uc-flow-chip">
+                <img src="icons/fabric.png" class="icon-img" alt="Microsoft Fabric">
+                Fabric Semantic Model ✓
+              </div>
+              <div class="uc-flow-chip">
+                <img src="icons/snowflake.png" class="icon-img" alt="Snowflake">
+                Snowflake Semantic View ✓
+              </div>
+              <div class="uc-flow-chip">
+                <img src="icons/databricks.png" class="icon-img" alt="Databricks">
+                Databricks Metrics Views ✓
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outcomes -->
+        <div class="uc-outcomes">
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">🎯</div>
+            <div class="uc-outcome-text"><strong>Semantic Data Contract</strong>SML becomes the semantic twin of the Iceberg data contract — one definition of every metric, deployed uniformly across all three platforms.</div>
+          </div>
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">🤖</div>
+            <div class="uc-outcome-text"><strong>Unified AI Grounding</strong>Copilot, Cortex AI, and Genie all answer from the same metric definitions — not three conflicting ones determined by which platform the agent runs on.</div>
+          </div>
+          <div class="uc-outcome">
+            <div class="uc-outcome-icon">♾️</div>
+            <div class="uc-outcome-text"><strong>True Open Architecture</strong>Open data layer + open semantic layer. Neither the data nor the business logic is locked to any vendor — both are portable by design.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CTA ═══ -->
+<section class="uc-cta-section">
+  <div class="container">
+    <h2>See Your Use Case in <span class="grad">Action</span></h2>
+    <p>Every enterprise data landscape is different. Talk to us about where semantic fragmentation is costing your organisation.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="index.html#cta" class="btn-primary">Request a Demo →</a>
+      <a href="index.html#adapters" class="btn-secondary">Explore Adapters</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+          <defs><linearGradient id="flg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#38d4c0"/></linearGradient></defs>
+          <rect x="4" y="28" width="5" height="16" rx="2.5" fill="url(#flg)"/>
+          <rect x="39" y="28" width="5" height="16" rx="2.5" fill="url(#flg)"/>
+          <rect x="2" y="33" width="44" height="3" rx="1.5" fill="url(#flg)" opacity="0.35"/>
+          <path d="M6.5 34 Q24 5 41.5 34" stroke="url(#flg)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="24" cy="10.5" r="4" fill="#06080f" stroke="url(#flg)" stroke-width="2.2"/>
+        </svg>
+        <div>
+          <div class="footer-brand-name">SemaBridge</div>
+          <div class="footer-tagline">Bring Semantics to Data</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.72rem;color:#374151;max-width:760px;margin:20px auto 0;line-height:1.7;text-align:center">
+      All third-party product names, logos, and brands referenced on this page are the property of their respective owners and are used for identification purposes only. SemaBridge is not affiliated with, endorsed by, or sponsored by any third-party vendor.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

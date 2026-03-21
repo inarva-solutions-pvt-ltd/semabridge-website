@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SemaBridge — Bring Semantics to Data</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <!-- SemaBridge Logo — Option A: Suspension Bridge -->
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="nb1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#38d4c0"/></linearGradient>
+        </defs>
+        <rect x="4" y="28" width="5" height="16" rx="2.5" fill="url(#nb1)"/>
+        <rect x="39" y="28" width="5" height="16" rx="2.5" fill="url(#nb1)"/>
+        <rect x="2" y="33" width="44" height="3" rx="1.5" fill="url(#nb1)" opacity="0.35"/>
+        <path d="M6.5 34 Q24 5 41.5 34" stroke="url(#nb1)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <line x1="13.5" y1="19.5" x2="13.5" y2="33" stroke="url(#nb1)" stroke-width="1.2" opacity="0.45"/>
+        <line x1="24"   y1="10.5" x2="24"   y2="33" stroke="url(#nb1)" stroke-width="1.2" opacity="0.45"/>
+        <line x1="34.5" y1="19.5" x2="34.5" y2="33" stroke="url(#nb1)" stroke-width="1.2" opacity="0.45"/>
+        <circle cx="13.5" cy="19.5" r="3.2" fill="#0d1117" stroke="#4f8ef7" stroke-width="2"/>
+        <circle cx="24"   cy="10.5" r="4"   fill="#0d1117" stroke="url(#nb1)" stroke-width="2.2"/>
+        <circle cx="34.5" cy="19.5" r="3.2" fill="#0d1117" stroke="#38d4c0" stroke-width="2"/>
+        <circle cx="13.5" cy="19.5" r="1.4" fill="#4f8ef7"/>
+        <circle cx="24"   cy="10.5" r="1.8" fill="url(#nb1)"/>
+        <circle cx="34.5" cy="19.5" r="1.4" fill="#38d4c0"/>
+      </svg>
+      <div class="nav-logo-text">
+        <span>SemaBridge</span>
+        <span class="nav-tagline">Bring Semantics to Data</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#adapters">Adapters</a>
+      <a href="#agents">Agents</a>
+      <a href="usecases.html">Use Cases</a>
+      <a href="#security">Security</a>
+    </div>
+    <a href="#cta" class="nav-cta">Request Demo →</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Semantic Layer Intelligence
+        </div>
+        <h1>
+          One Semantic Layer.<br>
+          <span class="grad">Every Platform.</span>
+        </h1>
+        <p class="hero-sub">
+          SemaBridge eliminates semantic drift across your data ecosystem. Extract business logic from any BI tool or data platform, normalize it into a portable canonical standard, and deploy it anywhere — automatically, securely, and within your own environment.
+        </p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn-primary">Request a Demo →</a>
+          <a href="#solution" class="btn-secondary">See How It Works</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="flow-card">
+          <div class="flow-title">Live Semantic Sync</div>
+
+          <!-- Sources -->
+          <div class="flow-row">
+            <div class="flow-node">
+              <div class="flow-node-icon" style="background:#fff3e0">
+                <img src="icons/powerbi.png" class="icon-img" alt="Power BI">
+              </div>
+              Power BI
+            </div>
+            <div class="flow-arrow">→</div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-node">
+              <div class="flow-node-icon" style="background:#fff0ee">
+                <img src="icons/tableau.png" class="icon-img" alt="Tableau">
+              </div>
+              Tableau
+            </div>
+            <div class="flow-arrow">→</div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-node">
+              <div class="flow-node-icon" style="background:#e8f8f0">
+                <img src="icons/Qlik.png" class="icon-img" alt="Qlik">
+              </div>
+              Qlik
+            </div>
+            <div class="flow-arrow">→</div>
+          </div>
+
+          <!-- SemaBridge canonical layer -->
+          <div class="flow-bridge">
+            <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+              <defs><linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#38d4c0"/></linearGradient></defs>
+              <rect x="4" y="28" width="5" height="16" rx="2.5" fill="url(#hbg)"/>
+              <rect x="39" y="28" width="5" height="16" rx="2.5" fill="url(#hbg)"/>
+              <rect x="2" y="33" width="44" height="3" rx="1.5" fill="url(#hbg)" opacity="0.35"/>
+              <path d="M6.5 34 Q24 5 41.5 34" stroke="url(#hbg)" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <line x1="13.5" y1="19.5" x2="13.5" y2="33" stroke="url(#hbg)" stroke-width="1.2" opacity="0.45"/>
+              <line x1="24"   y1="10.5" x2="24"   y2="33" stroke="url(#hbg)" stroke-width="1.2" opacity="0.45"/>
+              <line x1="34.5" y1="19.5" x2="34.5" y2="33" stroke="url(#hbg)" stroke-width="1.2" opacity="0.45"/>
+              <circle cx="13.5" cy="19.5" r="3.2" fill="#111827" stroke="#4f8ef7" stroke-width="2"/>
+              <circle cx="24"   cy="10.5" r="4"   fill="#111827" stroke="url(#hbg)" stroke-width="2.2"/>
+              <circle cx="34.5" cy="19.5" r="3.2" fill="#111827" stroke="#38d4c0" stroke-width="2"/>
+              <circle cx="13.5" cy="19.5" r="1.4" fill="#4f8ef7"/>
+              <circle cx="24"   cy="10.5" r="1.8" fill="url(#hbg)"/>
+              <circle cx="34.5" cy="19.5" r="1.4" fill="#38d4c0"/>
+            </svg>
+            <div>
+              <div style="font-size:0.78rem;font-weight:800;background:linear-gradient(90deg,#4f8ef7,#38d4c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">SemaBridge</div>
+              <div style="font-size:0.7rem;color:#64748b;font-weight:500;margin-top:1px">Canonical Semantic Model · Open Standard</div>
+            </div>
+          </div>
+
+          <!-- Targets -->
+          <div class="flow-row">
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">
+              <div class="flow-node-icon" style="background:#e8f4ff">
+                <img src="icons/snowflake.png" class="icon-img" alt="Snowflake">
+              </div>
+              Snowflake Semantic View
+            </div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">
+              <div class="flow-node-icon" style="background:#fff3f0">
+                <img src="icons/databricks.png" class="icon-img" alt="Databricks">
+              </div>
+              Databricks Metrics Views
+            </div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">
+              <div class="flow-node-icon" style="background:#e8f0ff">
+                <img src="icons/fabric.png" class="icon-img" alt="Microsoft Fabric">
+              </div>
+              Fabric Semantic Model
+            </div>
+          </div>
+
+          <div class="flow-stats">
+            <div class="flow-stat"><div class="flow-stat-val">100%</div><div class="flow-stat-label">No Lock-in</div></div>
+            <div class="flow-stat"><div class="flow-stat-val">0</div><div class="flow-stat-label">Secrets Stored</div></div>
+            <div class="flow-stat"><div class="flow-stat-val">∞</div><div class="flow-stat-label">Extensible</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROBLEM ═══ -->
+<section class="section section--alt" id="problem">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">The Problem</div>
+      <h2>Your Business Logic Is <span class="grad">Breaking Down</span></h2>
+      <p>Enterprises running multiple BI tools and cloud data platforms are accumulating a silent but critical liability — fragmented, contradictory semantic definitions that erode trust in data.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="problem-icon">⚠️</span>
+        <h3>Semantic Drift &amp; Report Inconsistency</h3>
+        <p>"Revenue," "Churn Rate," "Active Users" — the same metric returns different values depending on which tool a stakeholder opens. No single source of truth. Decisions are made on contradictory data.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🔀</span>
+        <h3>Segregated Platforms, Siloed Logic</h3>
+        <p>Power BI, Tableau, Snowflake, and Databricks each maintain their own private semantic definitions. There is no cross-platform consistency layer, leaving business logic permanently fragmented across your data estate.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🔒</span>
+        <h3>Vendor Lock-in Stifles Modernization</h3>
+        <p>Proprietary semantic layers hold your business logic hostage. Migrating to a modern data cloud means months of manual re-engineering — expensive, error-prone, and deeply disruptive to the business.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🛠️</span>
+        <h3>Manual Migrations Destroy Value</h3>
+        <p>Developers painstakingly hand-translate measures, dimensions, hierarchies, and relationships for every platform change. No automation, no traceability, no guarantee the logic survives intact.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🤖</span>
+        <h3>AI Agents Lack Semantic Grounding</h3>
+        <p>Without a governed semantic layer, AI agents and Copilots query raw tables with no business context. They hallucinate metrics, misinterpret dimensions, and produce answers that conflict with your BI reports.</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">📋</span>
+        <h3>No Audit Trail for Business Logic</h3>
+        <p>When semantic definitions change, there is no record of what changed, when, or why. Compliance teams cannot trace metric lineage. Regulated industries face significant exposure without an immutable logic audit trail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOLUTION ═══ -->
+<section class="section" id="solution">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">The Solution</div>
+      <h2>Canonical Semantics. <span class="grad">Zero Manual Work.</span></h2>
+      <p>SemaBridge introduces a canonical semantic layer — SML (Semantic Modeling Language) — as the universal passport for your business logic. Extract once. Deploy anywhere.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">⚙️</div>
+        <h4>Configure</h4>
+        <p>Define source, target and auth via a secure YAML config. Zero secrets stored anywhere.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">📥</div>
+        <h4>Extract</h4>
+        <p>Connect to your BI tool or data platform and extract the full semantic model metadata.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">🔄</div>
+        <h4>Normalize</h4>
+        <p>Convert proprietary formats into canonical SML/OSI — open, versioned, and portable.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">✅</div>
+        <h4>Validate</h4>
+        <p>Detect lossy mappings and unsupported features before deployment. Nothing breaks silently.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">🚀</div>
+        <h4>Deploy</h4>
+        <p>Emit to any target platform with full traceability. Every run is versioned and auditable.</p>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Platform Adapters</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Secure Data Boundary</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Immutable Audit Trail</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Manual Re-engineering</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ADAPTERS ═══ -->
+<section class="section" id="adapters">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Adapters</div>
+      <h2>Connect Your Entire <span class="grad">Data Ecosystem</span></h2>
+      <p>Pre-built, production-ready adapters for the world's leading BI tools and cloud data platforms. Each adapter speaks the platform's native language — and translates it to SML.</p>
+    </div>
+    <div class="adapters-grid">
+
+      <!-- ① Cloud Data Platforms -->
+      <div class="adapter-group data">
+        <div class="adapter-group-label">Cloud Data Platforms</div>
+        <h3>Modern Data Clouds</h3>
+        <p>Deploy canonical SML models as native semantic objects on the world's leading cloud data platforms — no re-engineering required.</p>
+        <div class="adapter-list">
+
+          <div class="adapter-item">
+            <div class="adapter-logo" style="background:#e8f4ff">
+              <img src="icons/snowflake.png" class="icon-img" alt="Snowflake">
+            </div>
+            <div class="adapter-info">
+              <div class="adapter-name">Snowflake Semantic View</div>
+              <div class="adapter-desc">OSI-native Semantic Views, dimensions, facts, metrics, Cortex integration</div>
+            </div>
+            <span class="adapter-tag">Source / Target</span>
+          </div>
+
+          <div class="adapter-item">
+            <div class="adapter-logo" style="background:#fff3f0">
+              <img src="icons/databricks.png" class="icon-img" alt="Databricks">
+            </div>
+            <div class="adapter-info">
+              <div class="adapter-name">Databricks Metrics Views</div>
+              <div class="adapter-desc">Unity Catalog metrics views, Delta tables, Genie AI integration</div>
+            </div>
+            <span class="adapter-tag">Source / Target</span>
+          </div>
+
+          <div class="adapter-item">
+            <div class="adapter-logo" style="background:#e8f0ff">
+              <img src="icons/fabric.png" class="icon-img" alt="Microsoft Fabric">
+            </div>
+            <div class="adapter-info">
+              <div class="adapter-name">Fabric Semantic Model</div>
+              <div class="adapter-desc">Microsoft Fabric semantic models, OneLake, workspace REST API</div>
+            </div>
+            <span class="adapter-tag">Source / Target</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ② Data Transformation -->
+      <div class="adapter-group transform">
+        <div class="adapter-group-label">Data Transformation</div>
+        <h3>Semantic Layer Tools</h3>
+        <p>Bridge the metric layer with transformation frameworks — carry governed business definitions from your dbt or Cube models directly into any target platform.</p>
+        <div class="adapter-list">
+
+          <div class="adapter-item">
+            <div class="adapter-logo" style="background:#fff2ee">
+              <img src="icons/dbt.png" class="icon-img" alt="dbt">
+            </div>
+            <div class="adapter-info">
+              <div class="adapter-name">dbt Semantic Layer</div>
+              <div class="adapter-desc">dbt metrics, dimensions, semantic manifest, MetricFlow definitions</div>
+            </div>
+            <span class="adapter-tag">Source / Target</span>
+          </div>
+
+          <div class="adapter-item">
+            <div class="adapter-logo" style="background:#fff4f0">
+              <img src="icons/cube.png" class="icon-img" alt="Cube">
+            </div>
+            <div class="adapter-info">
+              <div class="adapter-name">Cube Semantic Layer</div>
+              <div class="adapter-desc">Cube.dev metrics, dimensions, joins, pre-aggregations, REST &amp; GraphQL API</div>
+            </div>
+            <span class="adapter-tag">Source / Target</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ③ BI and Analytics -->
+      <div class="adapter-group bi">
+        <div class="adapter-group-label">BI and Analytics</div>
+        <h3>Visualisation Platforms</h3>
+        <p>Extract rich semantic models — measures, dimensions, hierarchies, DAX expressions, relationships — from your existing BI investments.</p>
+        <div class="adapter-list">
+
+          <div class="adapter-item">
+            <div class="adapter-logo" style="background:#fff3e0">
+              <img src="icons/powerbi.png" class="icon-img" alt="Power BI">
+            </div>
+            <div class="adapter-info">
+              <div class="adapter-name">Power BI</div>
+              <div class="adapter-desc">Semantic models, TMSL, DAX measures, row-level security, REST API</div>
+            </div>
+            <span class="adapter-tag">Source / Target</span>
+          </div>
+
+          <div class="adapter-item">
+            <div class="adapter-logo" style="background:#fff0ee">
+              <img src="icons/tableau.png" class="icon-img" alt="Tableau">
+            </div>
+            <div class="adapter-info">
+              <div class="adapter-name">Tableau</div>
+              <div class="adapter-desc">Published data sources, calculated fields, relationships, LOD expressions</div>
+            </div>
+            <span class="adapter-tag">Source / Target</span>
+          </div>
+
+          <div class="adapter-item">
+            <div class="adapter-logo" style="background:#e8f8f0">
+              <img src="icons/Qlik.png" class="icon-img" alt="Qlik">
+            </div>
+            <div class="adapter-info">
+              <div class="adapter-name">Qlik</div>
+              <div class="adapter-desc">Data model scripts, master items, set expressions, associations</div>
+            </div>
+            <span class="adapter-tag">Source / Target</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AGENTS ═══ -->
+<section class="section section--alt" id="agents">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Agent-Ready Semantics</div>
+      <h2>Power AI Agents with <span class="grad">Trusted Business Logic</span></h2>
+      <p>The SML canonical layer doesn't just bridge platforms — it feeds AI agents with verified, governance-approved semantic context. No hallucinations. No ambiguity.</p>
+    </div>
+    <div class="agents-wrapper">
+      <div class="agents-header">
+        <div class="agents-icon">🤖</div>
+        <div class="agents-header-text">
+          <h3>Agent Integration Layer</h3>
+          <p>SemaBridge outputs SML/OSI that is natively consumable by the leading agentic AI frameworks — giving agents the grounded business context they need to reason accurately.</p>
+        </div>
+      </div>
+      <div class="agents-grid">
+
+        <div class="agent-card">
+          <div class="agent-platform-badge">
+            <img src="icons/databricks.png" class="icon-badge-img" alt="Databricks">
+            Databricks
+          </div>
+          <div class="agent-logo" style="background:#fff3f0">
+            <img src="icons/databricks.png" class="icon-img" alt="Databricks">
+          </div>
+          <h4>AgentBricks</h4>
+          <p>Deploy SML-normalized semantic models directly into Databricks AgentBricks. Your business metrics become the grounded knowledge layer for Mosaic AI agents — ensuring every query resolves to a governed, consistent definition.</p>
+          <div class="agent-features">
+            <div class="agent-feature">Unity Catalog semantic grounding</div>
+            <div class="agent-feature">Governed metric resolution for AI queries</div>
+            <div class="agent-feature">Delta table &amp; Genie AI context injection</div>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-platform-badge">
+            <img src="icons/snowflake.png" class="icon-badge-img" alt="Snowflake">
+            Snowflake
+          </div>
+          <div class="agent-logo" style="background:#e8f4ff">
+            <img src="icons/snowflake.png" class="icon-img" alt="Snowflake">
+          </div>
+          <h4>Snowflake Cortex</h4>
+          <p>SemaBridge outputs Snowflake-native Semantic Views (OSI) that power Cortex Analyst — Snowflake's natural language-to-SQL AI. Agents answer business questions using the same metric definitions as your BI dashboards.</p>
+          <div class="agent-features">
+            <div class="agent-feature">Semantic View auto-generation from SML</div>
+            <div class="agent-feature">Cortex Analyst metric grounding</div>
+            <div class="agent-feature">NL-to-SQL with governed business context</div>
+          </div>
+        </div>
+
+        <div class="agent-card">
+          <div class="agent-platform-badge">
+            <img src="icons/fabric.png" class="icon-badge-img" alt="Microsoft Fabric">
+            Microsoft
+          </div>
+          <div class="agent-logo" style="background:#e8f0ff">
+            <img src="icons/fabric.png" class="icon-img" alt="Microsoft Fabric">
+          </div>
+          <h4>Fabric Data Agents</h4>
+          <p>Feed Microsoft Fabric AI skills and Data Agents with SML-normalized semantic models from OneLake. Copilot and agentic workflows gain access to certified, cross-platform business logic — not raw table schemas.</p>
+          <div class="agent-features">
+            <div class="agent-feature">OneLake semantic model integration</div>
+            <div class="agent-feature">Fabric Copilot context enrichment</div>
+            <div class="agent-feature">Cross-workspace metric consistency</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BENEFITS ═══ -->
+<section class="section" id="benefits">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Why SemaBridge</div>
+      <h2>Built for the <span class="grad">Enterprise</span></h2>
+      <p>Every design decision in SemaBridge is driven by the real operational, security, and compliance demands of enterprise data teams.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon bg-blue">🔗</div>
+        <h3>Seamless Cross-Platform Interoperability</h3>
+        <p>Extract from one platform and deploy to another in a single automated pipeline. No manual re-engineering, no guesswork — the same business logic, everywhere.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon bg-teal">📜</div>
+        <h3>Immutable Audit Trail</h3>
+        <p>Every execution is tracked with a Project ID and Run ID. Every artifact — SML, conversion reports, source metadata — is permanently logged, creating a tamper-proof flight recorder for compliance teams.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon bg-purple">🏛️</div>
+        <h3>Open Standards. No Lock-in.</h3>
+        <p>SML (Semantic Modeling Language) and OSI (Open Semantic Interchange) are open standards, not proprietary formats. Your business logic is always yours — readable, versionable, and portable.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon bg-orange">⚡</div>
+        <h3>Automated Orchestration</h3>
+        <p>Replace error-prone manual deployments with a standardized, automated workflow. From extraction to validation to deployment — fully automated, reproducible, and CI/CD-ready.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon bg-green">🔮</div>
+        <h3>Future-Proof Architecture</h3>
+        <p>Plug-in connectors, versioned rule packs, and a stable converter core mean new platforms are addable without disrupting existing pipelines. Built to evolve with your data stack.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon bg-pink">🏠</div>
+        <h3>Self-Contained in Your Environment</h3>
+        <p>SemaBridge runs entirely within your own infrastructure — no external servers, no cloud dependencies. All semantic artifacts persist locally, ensuring your business logic never leaves your controlled perimeter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECURITY ═══ -->
+<section class="section section--alt" id="security">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-kicker">Zero-Trust Security</div>
+      <h2>Runs Inside Your <span class="grad">Customer Environment</span></h2>
+      <p>SemaBridge is architected from the ground up to run entirely within your own infrastructure — no data leaves your perimeter, no external dependencies, no cloud services required.</p>
+    </div>
+    <div class="security-wrap">
+      <div class="security-list">
+        <div class="security-item">
+          <div class="security-check">✓</div>
+          <div>
+            <h4>Runs Entirely in Your Environment</h4>
+            <p>SemaBridge is deployed and executed within your own infrastructure — on-premises or your private cloud. There is no SaaS component, no call-home, and no external data transmission. Your semantic models never leave your network.</p>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-check">✓</div>
+          <div>
+            <h4>Zero Secrets Stored. Ever.</h4>
+            <p>All credentials — tokens, passwords, client secrets, private keys — are provided exclusively via environment variables. They are never written to YAML configuration, logs, or artifact storage.</p>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-check">✓</div>
+          <div>
+            <h4>Local Artifact Sovereignty</h4>
+            <p>All semantic artifacts — source metadata, SML output, conversion reports — are persisted locally in your own environment using your chosen storage backend. You own and control all data at all times.</p>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-check">✓</div>
+          <div>
+            <h4>Compliance-Grade Traceability</h4>
+            <p>Every run is identified with a Project ID and Run ID, with immutable execution status (SUCCESS / FAILED / PARTIAL). Designed for internal audits, SOC 2, and regulated industry requirements.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="security-visual">
+        <div class="code-line"><span class="code-comment"># semabridge.yaml — runs in your environment</span></div>
+        <br>
+        <div class="code-line"><span class="code-key">project</span>:</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">name</span>: <span class="code-string">"revenue-semantic-model"</span></div>
+        <br>
+        <div class="code-line"><span class="code-key">source</span>:</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">type</span>: <span class="code-string">"fabric_semantic_model"</span></div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">workspace</span>: <span class="code-string">"prod-workspace"</span></div>
+        <br>
+        <div class="code-line"><span class="code-key">target</span>:</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">type</span>: <span class="code-string">"snowflake_semantic_view"</span></div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">database</span>: <span class="code-string">"ANALYTICS"</span></div>
+        <br>
+        <div class="code-line"><span class="code-key">auth</span>:</div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">fabric</span>:</div>
+        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-key">client_secret_env</span>: <span class="code-env">"SB_FABRIC_SECRET"</span></div>
+        <div class="code-line">&nbsp;&nbsp;<span class="code-key">snowflake</span>:</div>
+        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-key">password_env</span>: <span class="code-env">"SB_SF_PASSWORD"</span></div>
+        <br>
+        <div class="code-line"><span class="code-comment"># ✓ All processing stays within your network</span></div>
+        <div class="code-line"><span class="code-comment"># ✓ No data transmitted externally</span></div>
+        <div class="code-line"><span class="code-comment"># ✓ Credentials isolated to env vars only</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="section" id="cta">
+  <div class="container">
+    <div class="cta-section">
+      <h2>Ready to Unify Your Semantic Layer?</h2>
+      <p>See how SemaBridge eliminates semantic drift, accelerates platform migrations, and powers AI agents with trusted business logic — in a personalized demo tailored to your data stack.</p>
+      <div class="cta-actions">
+        <a href="mailto:contact@semabridge.io" class="btn-primary">Request a Demo →</a>
+        <a href="#adapters" class="btn-secondary">Explore Adapters</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">
+      <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="flg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#38d4c0"/></linearGradient></defs>
+        <rect x="4" y="28" width="5" height="16" rx="2.5" fill="url(#flg)"/>
+        <rect x="39" y="28" width="5" height="16" rx="2.5" fill="url(#flg)"/>
+        <rect x="2" y="33" width="44" height="3" rx="1.5" fill="url(#flg)" opacity="0.35"/>
+        <path d="M6.5 34 Q24 5 41.5 34" stroke="url(#flg)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <line x1="13.5" y1="19.5" x2="13.5" y2="33" stroke="url(#flg)" stroke-width="1.2" opacity="0.45"/>
+        <line x1="24"   y1="10.5" x2="24"   y2="33" stroke="url(#flg)" stroke-width="1.2" opacity="0.45"/>
+        <line x1="34.5" y1="19.5" x2="34.5" y2="33" stroke="url(#flg)" stroke-width="1.2" opacity="0.45"/>
+        <circle cx="13.5" cy="19.5" r="3.2" fill="#06080f" stroke="#4f8ef7" stroke-width="2"/>
+        <circle cx="24"   cy="10.5" r="4"   fill="#06080f" stroke="url(#flg)" stroke-width="2.2"/>
+        <circle cx="34.5" cy="19.5" r="3.2" fill="#06080f" stroke="#38d4c0" stroke-width="2"/>
+        <circle cx="13.5" cy="19.5" r="1.4" fill="#4f8ef7"/>
+        <circle cx="24"   cy="10.5" r="1.8" fill="url(#flg)"/>
+        <circle cx="34.5" cy="19.5" r="1.4" fill="#38d4c0"/>
+      </svg>
+      <span>SemaBridge</span>
+    </div>
+    <p style="margin-bottom:20px">Bring Semantics to Data</p>
+    <p style="font-size:0.72rem;color:#374151;max-width:760px;margin:0 auto;line-height:1.7">
+      All third-party product names, logos, and brands referenced on this page are the property of their respective owners and are used for identification purposes only. SemaBridge is not affiliated with, endorsed by, or sponsored by any third-party vendor.
+    </p>
+    <p style="margin-top:16px;font-size:0.78rem">© 2026 SemaBridge. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

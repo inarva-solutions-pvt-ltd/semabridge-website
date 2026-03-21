@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" role="img" aria-label="Qlik">
+  <title>Qlik</title>
+  <circle cx="55" cy="55" r="48" fill="#009845"/>
+  <circle cx="55" cy="55" r="31" fill="white"/>
+  <line x1="76.92" y1="76.92" x2="117.79" y2="117.79"
+        stroke="#009845" stroke-width="17" stroke-linecap="round"/>
+</svg>
